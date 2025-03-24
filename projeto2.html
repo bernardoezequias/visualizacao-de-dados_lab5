@@ -1,0 +1,129 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=area-basic&code=DYUwLgBATghg7gERmGEC8EDaAoCeIDeEMAdgPYBcEATAAwCMAzADQRhkrAD6AxgBYBXAG4wuAWzFVqADloQAvs1z4ipSjQYAWVu069BI8ZIibamgHQA2BUvyFi5KQwCsOjjG79hoiVUbTLcwB2G2U8VUcNeks3PS9DXxoATmdQuwj1Onog2I99byMpenpzVMUw-zUnemlczwMfYyDLC2k0lQdMhiS6_ITjTSSg8yT28M6nOl74xqpnJJLGMcrIump6aYbCiH9pUuWMyepNgsSk_ysDiY1qFjZ3etPjRmbL-WwAXQBubGwAej-EAAwh4eAJgKQACZkYgQERQACWMAA5wBjmGQ1AzTqwtTYUCQeFIngwMhAhroaDwJAocwAZ2ACJ4IAAFPQAJTmMQwAAOLJZkNYCPZ6AAfBAWQQKlUIJDzGpbPgiTASeoeTAoHSQAAxYBkZD8uW6PIzIwQAC0VMQyBgmARH3Mxse_U57G1CIAHiBISzqOyRdh5P6ftgyDywAiyCRKVK7OwyMAIzyqLG7PgwIiAOaZkBQKgAchgHoRdPzirTxGLdIACmQESQwLmU2wAJ48kAFul8GDQuD55Z2ABmZCg3LAjbzEEHAhIPAjUYl6tgYjpItTFbsUHAAig0YABgBBSIAEgIS5gK8wtAdJAvIHkEAAPAAjKDigBqGqRaPUp_Pl-vcxMRQB8JD3H4NwUCpyjsYCYAALTIMhjBwSCiDANsOwgfMGQRSFczLCA6RQKAwCoWhWBAEhISoehaDkGCN3QzCC3rOk8JAft3jsD5yzYBEwFAFMKjjEAPTIiAACJP0RFF0QgI8BA8WUYXfBMBDEEBZS08lvAlLJNFhNZGBFS1tRgAAvKjMWBDVbwAL-fVBLQAFV5XMyAAQ4tCBqwAIUkvi7FAQcJPzZkGwIoL0zDWjaGgvjM0RGjCBE_AQrCuiAFIyzSvAsz4TLaBy6K8GfDh2GMfN6GcEq8ogHgoxQesABkYGfEBgCoDMBBABKKg9A8q2EyCMPbAsSUbTMRxbXLILgqhlVVXSRC5XkBTFWV5XIdlSogW9NKoSSjzIQL6oOkAWrISbIxII6xDwyFQDOyCLoAcV5KRnH6uwWyGksRo3MasPzERgF6uaNwuo6ZO_eT8IaikWQkdkXqhu8rpuqN7se569vez6dm-uxGLwLVERAOkqFQpj6rsaGpNhuSMR0ho0cgvAFrhL8VVJFaYDWvlIU2uUltJXa6fTFjsKcqBIY5iBZYAdTwsA-ALZxisIyW8AEkAxAAZQwoTUoVitGr1Sdp1nedoxZf9V1Ns3IK3MAd2jB2gJtCBRQwOQAH4ZfBziIALLdIXzL4IB1tNuLN0mOe5KAAGsWvrLD12d2UbWpog_uGiAGN46Os_S9OjZbE3mPG7DMS7b0uJjuOK2biAPkDL4gA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let rawData = [
+    { ano: 2013, total_chuva_mm: 280 },
+    { ano: 2014, total_chuva_mm: 404.6 },
+    { ano: 2015, total_chuva_mm: 386.7 },
+    { ano: 2016, total_chuva_mm: 295 },
+    { ano: 2017, total_chuva_mm: 211.5 },
+    { ano: 2018, total_chuva_mm: 764.8 },
+    { ano: 2019, total_chuva_mm: 497.9 },
+    { ano: 2020, total_chuva_mm: 591.3 },
+    { ano: 2021, total_chuva_mm: 388.5 },
+    { ano: 2022, total_chuva_mm: 938.6 },
+    { ano: 2023, total_chuva_mm: 376.6 }
+];
+
+// Calculando a variação da chuva ano a ano
+let variacaoChuva = rawData.slice(1).map((d, i) => ({
+    ano: d.ano,
+    variacao: parseFloat((d.total_chuva_mm - rawData[i].total_chuva_mm).toFixed(2)) 
+}));
+
+option = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function (params) {
+            return `Ano: ${params[0].name} <br> Variação: ${params[0].data} mm`;
+        }
+    },
+    dataZoom: [
+        { type: 'slider', start: 0, end: 100 },
+        { type: 'inside' }
+    ],
+    title: {
+        text: "Variação Anual do Volume de Chuva (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB",
+        left: 'center',
+        top: 10
+    },
+    grid: {
+        left: '10%',
+        right: '10%',
+        bottom: '15%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        data: variacaoChuva.map(d => d.ano),
+        name: "Ano",
+        nameLocation: "middle",
+        nameGap: 25
+    },
+    yAxis: {
+        type: 'value',
+        name: "Variação de chuva (mm)",
+        nameLocation: "middle",
+        nameGap: 35
+    },
+    series: [
+        {
+            name: "Variação de Chuva",
+            data: variacaoChuva.map(d => d.variacao),
+            type: 'bar',
+            barWidth: '50%', 
+            itemStyle: {
+                color: function (params) {
+                    return params.data >= 0 ? 'blue' : 'red'; 
+                }
+            },
+            markLine: {
+                data: [{ yAxis: 0 }], 
+                lineStyle: { type: 'dashed' }
+            }
+        }
+    ]
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
